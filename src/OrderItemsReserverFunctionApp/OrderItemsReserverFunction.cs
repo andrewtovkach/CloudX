@@ -2,11 +2,11 @@
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
-using Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using OrderItemsReserverFunctionApp.BlobStorageService;
 using OrderItemsReserverFunctionApp.EmailNotifier;
+using OrderItemsReserverFunctionApp.Models;
 
 namespace OrderItemsReserverFunctionApp
 {
