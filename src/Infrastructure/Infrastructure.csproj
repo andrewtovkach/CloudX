@@ -10,6 +10,7 @@
 		<PackageReference Include="Azure.Messaging.ServiceBus" Version="7.5.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.14.1" />
 	</ItemGroup>

@@ -117,11 +117,17 @@ public class Startup
 
         services.AddCoreServices(Configuration);
         services.AddWebServices(Configuration);
+        services.AddHttpClient();
 
         services.AddOptions<ServiceBusOptions>()
             .Configure<IConfiguration>((settings, configuration) =>
             {
                 configuration.GetSection(nameof(ServiceBusOptions)).Bind(settings);
+            });
+        services.AddOptions<ApiClientOptions>()
+            .Configure<IConfiguration>((settings, configuration) =>
+            {
+                configuration.GetSection(nameof(ApiClientOptions)).Bind(settings);
             });
 
         // Add memory cache services

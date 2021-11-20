@@ -2,11 +2,11 @@
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
+using Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using OrderItemsReserverFunctionApp.BlobStorageService;
 using OrderItemsReserverFunctionApp.EmailNotifier;
-using OrderItemsReserverFunctionApp.Models;
 
 namespace OrderItemsReserverFunctionApp
 {
@@ -35,6 +35,8 @@ namespace OrderItemsReserverFunctionApp
 
                 await _blobStorageService.UploadFile($"{order.Id}.json", dataToUpload,
                     System.Net.Mime.MediaTypeNames.Application.Json);
+
+                log.LogInformation("The order details was sent to Blob storage.");
             }
             catch (Exception e)
             {

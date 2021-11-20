@@ -23,7 +23,7 @@ public static class ConfigureCoreServices
         services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
         services.AddTransient<IEmailSender, EmailSender>();
         services.AddTransient<IServiceBusNotifier, ServiceBusNotifier>();
-
+        services.AddTransient<IApiClient, ApiClient>();
         return services;
     }
 }

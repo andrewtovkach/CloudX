@@ -22,7 +22,7 @@ public class EmailNotifier : IEmailNotifier
         }
 
         _logger = logger;
-        this._client = httpClientFactory.CreateClient();
+        _client = httpClientFactory.CreateClient();
         _settings = settings.Value;
     }
 
@@ -30,7 +30,7 @@ public class EmailNotifier : IEmailNotifier
     {
         _logger.LogInformation("Sending email...");
 
-        var body = new StringContent(JsonConvert.SerializeObject(bodyParams), Encoding.UTF8, "application/json");
+        var body = new StringContent(JsonConvert.SerializeObject(bodyParams), Encoding.UTF8, System.Net.Mime.MediaTypeNames.Application.Json);
         var response = await _client.PostAsync(_settings.HostUrl, body);
         if (!response.IsSuccessStatusCode)
         {
