@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
+using Microsoft.eShopWeb.ApplicationCore.Options;
 using Microsoft.eShopWeb.Infrastructure.Data;
 using Microsoft.eShopWeb.Infrastructure.Identity;
 using Microsoft.eShopWeb.Web.Configuration;
@@ -116,6 +117,12 @@ public class Startup
 
         services.AddCoreServices(Configuration);
         services.AddWebServices(Configuration);
+
+        services.AddOptions<ServiceBusOptions>()
+            .Configure<IConfiguration>((settings, configuration) =>
+            {
+                configuration.GetSection(nameof(ServiceBusOptions)).Bind(settings);
+            });
 
         // Add memory cache services
         services.AddMemoryCache();
